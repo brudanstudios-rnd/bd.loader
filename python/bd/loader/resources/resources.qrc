@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="svg">
+        <file alias="loader.svg">svg/loader.svg</file>
+    </qresource>
+    <qresource prefix="fonts">
+        <file alias="Roboto-Regular.ttf">fonts/Roboto-Regular.ttf</file>
+    </qresource>
+</RCC>
