@@ -1,6 +1,6 @@
 name = "bd.loader"
 
-version = "0.0.1"
+version = "0.0.2"
 
 build_command = "python -m rezutil build {root} --ignore .env"
 private_build_requires = ["rezutil"]

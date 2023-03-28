@@ -279,7 +279,10 @@ class AssetTreeView(QtWidgets.QTreeView):
                 "fa5s.user-astronaut", color=asset_type_color, scale_factor=0.8
             ),
             "prp": qta.icon(
-                "fa5s.truck-monster", color=asset_type_color, scale_factor=0.8
+                "fa5s.shopping-bag", color=asset_type_color, scale_factor=0.8
+            ),
+            "set": qta.icon(
+                "fa5s.layer-group", color=asset_type_color, scale_factor=0.8
             ),
             "loc": qta.icon("fa5s.mountain", color=asset_type_color, scale_factor=0.8),
             "asset": qta.icon("fa5s.image", scale_factor=0.8),
@@ -324,7 +327,9 @@ class AssetTreeView(QtWidgets.QTreeView):
         if parent_item is self._model.invisibleRootItem():
 
             def _on_asset_types_loaded(asset_types: List[str]):
-                self._append_items(parent_item, EntityType.AssetType, asset_types)
+                self._append_items(
+                    self._model.invisibleRootItem(), EntityType.AssetType, asset_types
+                )
                 self.state = self.State.Ready
 
             self._accessor.request_asset_types(_on_asset_types_loaded)
@@ -424,6 +429,7 @@ class AssetTreeView(QtWidgets.QTreeView):
 
         for label in labels:
             self._append_item(parent_item, label, entity_type)
+
         parent_item.setData(LoadingStates.Loaded, ItemRoles.LoadingStateRole)
 
     def _append_asset_items(
@@ -510,6 +516,8 @@ class AssetTreeView(QtWidgets.QTreeView):
                 child_item.setIcon(self._icons["loc"])
             elif label == "Prop":
                 child_item.setIcon(self._icons["prp"])
+            elif label == "Set":
+                child_item.setIcon(self._icons["set"])
         else:
             child_item.setIcon(self._icons["folder"], state=child_item.State.Normal)
             child_item.setIcon(

@@ -1,7 +1,5 @@
 from maya import cmds
-from maya.OpenMayaUI import MQtUtil
 
-from bd.publish import publish
 from bd.context import get_context
 from bd.loader.loader import AssetLibraryWidget
 
