@@ -452,7 +452,7 @@ class AssetTreeView(QtWidgets.QTreeView):
             asset_type = asset.type
 
             parent_item = self._model.invisibleRootItem()
-            parent_key = f"{self._project.id}|{asset_type}"
+            parent_key = f"{self._project.code}|{asset_type}"
 
             asset_type_item = self._find_item_by_key(parent_key)
             if asset_type_item is None:
@@ -484,7 +484,7 @@ class AssetTreeView(QtWidgets.QTreeView):
 
         parent_key = parent_item.data(ItemRoles.KeyRole)
         if not parent_key:
-            parent_key = str(self._project.id)
+            parent_key = str(self._project.code)
 
         key = f"{parent_key}|{key or label}"
 
